@@ -1,22 +1,22 @@
 # Role Name
 =========
 
-Ansible role to install Lynis on Ubuntu and configure the server to be as compliant as possible against the Lynis system audit.
+Ansible role to install Docker bench security on Ubuntu and then run the audit against running containers.
 
 
 # Role Variables
 --------------
 
-**rat** - Linus returns a hardened rating once it has run and the rat variable will be compared to this rating to determine a success or failure. For example is the actual hardened rating was 70 and rat was set to 80, there will be a failure. Conversely, if the rating was 70 and rat was set to 60, there would be a success. 
+**repdir** - The directory to pull the final report into. 
 
-The default for **rat** is 70
-
+# Running the role
+---------------
 
     - hosts: servers
       roles: 
-        - Cac-Lynis
+        - Docker-CaC
       vars:
-        rat: 60
+        repdir: /tmp
 
 # License
 -------
@@ -26,7 +26,7 @@ BSD
 # References
 ------------------
 
-Lynis - https://github.com/CISOfy/lynis
+Docker Bench Security - https://github.com/docker/docker-bench-security
 
 # Author Information
 ------------------
