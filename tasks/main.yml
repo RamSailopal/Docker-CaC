@@ -1,0 +1,19 @@
+---
+# tasks file for Docker-CaC
+  - name: Install packages
+    apt:
+      name: "{{ item }}"
+      state: present
+      update-cache: yes
+    with_items:
+      - "git"
+  - name: Clone the directory
+    git:
+      repo: 'https://github.com/docker/docker-bench-security.git'
+      dest: /usr/local/docker-bench-security
+  - name: Run the bench security script
+    command: "/usr/local/docker-bench-security/docker-bench-security.sh"
+  - name: Fetch the log file
+    fetch:
+      src: "/usr/local/docker-bench-security/log/docker-bench-security.log"
+      dest: "{{ repdir }}"

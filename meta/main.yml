@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Raman Sailopal
+  description: Compliance as Code for Docker using Docker Bench security
+
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: Ubuntu
+      versions:
+      - all
+
+  galaxy_tags:
+    - compliance
+    - Docker
+
+dependencies: []
