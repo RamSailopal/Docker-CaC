@@ -12,7 +12,9 @@
       repo: 'https://github.com/docker/docker-bench-security.git'
       dest: /usr/local/docker-bench-security
   - name: Run the bench security script
-    command: "/usr/local/docker-bench-security/docker-bench-security.sh"
+    command: 
+      cmd: "/usr/local/docker-bench-security/docker-bench-security.sh"
+      chdir: "/usr/local/docker-bench-security"
   - name: Fetch the log file
     fetch:
       src: "/usr/local/docker-bench-security/log/docker-bench-security.log"
