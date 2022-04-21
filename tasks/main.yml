@@ -28,5 +28,3 @@
       - { src: 'compliance.sh', dest: '/opt/lynis/compliance.sh', remote: 'no' }
   - name: Now check hardened rating against the required one
     command: "/opt/lynis/compliance.sh {{ rat }}"
-
-
