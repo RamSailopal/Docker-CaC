@@ -8,6 +8,7 @@ Ansible role to install Docker bench security on Ubuntu and then run the audit a
 --------------
 
 **repdir** - The directory to pull the final report into. 
+**rat** - The rating to check the Docker Bench security compliance rating against.
 
 # Running the role
 ---------------
