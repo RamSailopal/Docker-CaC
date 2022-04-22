@@ -19,12 +19,17 @@
     fetch:
       src: "/usr/local/docker-bench-security/log/docker-bench-security.log"
       dest: "{{ repdir }}"
+  - name: Make Docker Bench Security script directory
+    file:
+      path: /opt/Docker-Bench-Security
+      state: directory
   - name: Copy the compliance Script
     copy:
       src: "{{ item.src }}"
       dest: "{{ item.dest }}"
       remote_src: "{{ item.remote }}"
+      mode: '0700'
     with_items:
-      - { src: 'compliance.sh', dest: '/opt/lynis/compliance.sh', remote: 'no' }
+      - { src: 'compliance.sh', dest: '/opt/Docker-Bench-Security/compliance.sh', remote: 'no' }
   - name: Now check hardened rating against the required one
-    command: "/opt/lynis/compliance.sh {{ rat }}"
+    command: "/opt/Docker-Bench-Security/compliance.sh {{ rat }}"
